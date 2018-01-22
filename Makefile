@@ -6,14 +6,14 @@
 #    By: alerandy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/12 12:43:59 by alerandy          #+#    #+#              #
-#    Updated: 2018/01/19 02:52:25 by alerandy         ###   ########.fr        #
+#    Updated: 2018/01/22 12:28:09 by alerandy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME = fractol
 SRC_PATH = srcs/
 OBJ_PATH = objects/
-SRC_NAME = main.c
+SRC_NAME = main.c ft_input.c ft_memclr.c ft_tabdel.c ft_putpixel.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 CC = gcc $(FLAG)
 FLAG = -Wall -Werror -Wextra -g
@@ -24,14 +24,11 @@ OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 all : $(NAME)
 
-$(NAME) : libft success $(OBJ)
+$(NAME) : libft minilibx $(OBJ)
 	@$(CC) $(LIB) $(FRAME) $(OBJ) -o $(NAME)
 
 libft :
 	@$(MAKE) -C libft/
-
-success : minilibx
-#	@printf "\033[9A\r\033[K""\033[32mLibrairie mlx compilé avec succès.\033[0m\n"
 
 minilibx :
 	@$(MAKE) -C minilibx_macos/
