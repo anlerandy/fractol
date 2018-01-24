@@ -6,14 +6,16 @@
 #    By: alerandy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/12 12:43:59 by alerandy          #+#    #+#              #
-#    Updated: 2018/01/22 12:28:09 by alerandy         ###   ########.fr        #
+#    Updated: 2018/01/23 15:11:02 by alerandy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 SRC_PATH = srcs/
 OBJ_PATH = objects/
-SRC_NAME = main.c ft_input.c ft_memclr.c ft_tabdel.c ft_putpixel.c
+SRC_NAME = main.c ft_input.c ft_memclr.c ft_tabdel.c ft_putpixel.c ft_strint.c \
+		   ft_fractal.c
+
 OBJ_NAME = $(SRC_NAME:.c=.o)
 CC = gcc $(FLAG)
 FLAG = -Wall -Werror -Wextra -g
@@ -38,7 +40,7 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@$(CC) -Iminilibx_macos -Iincludes -Ilibft/includes -o $@ -c $<
 
 clean :
-	@rm -f $(OBJ_PATH)
+	@rm -rf $(OBJ_PATH)
 	@$(MAKE) -C minilibx_macos/ clean
 	@printf "\033[2A\r\033[K""\033[1;30mLib mlx détruite.\033[0m\n"
 	@$(MAKE) -C libft/ clean

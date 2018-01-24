@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/22 13:35:28 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/01/24 20:54:00 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.01"
+# define WIN "FractaCraft 0.01  /  "
 # define BLUR 0x99000000
 # define BLUE 0x000000ff
 # define WHITE 0x00ffffff
@@ -25,10 +25,11 @@
 
 typedef struct	s_coor
 {
-	float		x;
-	float		y;
+	double		x;
+	double		y;
 	float		z;
 }				t_coor;
+
 typedef struct	s_frame
 {
 	void		*pimg;
@@ -43,10 +44,15 @@ typedef struct	s_data
 	void		*mlx;
 	void		*win;
 	void		*win2;
+	char		*name;
 	int			win_h;
 	int			win_w;
 	double		zoom;
 	double		depth;
+	double		min_x;
+	double		max_x;
+	double		min_y;
+	double		max_y;
 	double		posx;
 	double		posy;
 	double		rotx;
@@ -54,11 +60,12 @@ typedef struct	s_data
 	double		rotz;
 	int			flag;
 	t_frame		frame;
+	int			(*func)();
 }				t_data;
 
 typedef struct	s_frac
 {
-	void		(*func)();
+	int			(*func)();
 	char		*frac;
 }				t_frac;
 
@@ -69,5 +76,10 @@ char			*ft_intset(char *tab, int i, int size);
 int				ft_zoom(int key, int x, int y, void *param);
 void			usage(int err);
 int				ft_close(void);
+int				ft_strint(const char *haystack, const char *needle);
+
+int				julia();
+int				mandel();
+int				none();
 
 #endif
