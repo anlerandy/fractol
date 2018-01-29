@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/24 20:54:00 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/01/29 21:45:21 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.01  /  "
+# define WIN "FractaCraft 0.02  /  "
 # define BLUR 0x99000000
+# define BG 0
 # define BLUE 0x000000ff
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
@@ -45,6 +46,7 @@ typedef struct	s_data
 	void		*win;
 	void		*win2;
 	char		*name;
+	char		*name2;
 	int			win_h;
 	int			win_w;
 	double		zoom;
@@ -58,7 +60,11 @@ typedef struct	s_data
 	double		rotx;
 	double		roty;
 	double		rotz;
+	double		mouse_x;
+	double		mouse_y;
+	double		mousef;
 	int			flag;
+	int			iter;
 	t_frame		frame;
 	int			(*func)();
 }				t_data;
@@ -67,6 +73,7 @@ typedef struct	s_frac
 {
 	int			(*func)();
 	char		*frac;
+	char		*name;
 }				t_frac;
 
 void			ft_tabdel(void *tab, int len);
@@ -77,6 +84,7 @@ int				ft_zoom(int key, int x, int y, void *param);
 void			usage(int err);
 int				ft_close(void);
 int				ft_strint(const char *haystack, const char *needle);
+int				ft_controler(int x, int y, void *param);
 
 int				julia();
 int				mandel();
