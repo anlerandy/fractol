@@ -6,7 +6,7 @@
 #    By: alerandy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/12 12:43:59 by alerandy          #+#    #+#              #
-#    Updated: 2018/01/28 13:07:32 by alerandy         ###   ########.fr        #
+#    Updated: 2018/01/31 16:16:34 by alerandy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fractol
 SRC_PATH = srcs/
 OBJ_PATH = objects/
 SRC_NAME = main.c ft_input.c ft_memclr.c ft_tabdel.c ft_putpixel.c ft_strint.c \
-		   ft_fractal.c ft_mouse.c
+		   ft_fractal.c ft_mouse.c usage.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 CC = gcc $(FLAG)

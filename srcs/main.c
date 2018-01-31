@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 12:07:38 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/29 16:46:38 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/01/31 16:57:19 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_input(t_data *data)
 	mlx_put_image_to_window(data->mlx, data->win, data->frame.pimg, 0, 0);
 	mlx_hook(data->win, 2, 0, ft_exit, (void *)data);
 	mlx_hook(data->win, 17, 0, ft_close, 0);
-	mlx_hook(data->win, 6, (1L<<6), &ft_controler, (void *)data);
+	mlx_hook(data->win, 6, (1L << 6), &ft_controler, (void *)data);
 	mlx_mouse_hook(data->win, ft_zoom, (void *)data);
 	mlx_loop(data->mlx);
 }
@@ -43,10 +43,6 @@ static void	set_data(t_data *data, int i)
 	data->win_h = 1100;
 	data->name = ft_strjoin(WIN, g_frac[i].name);
 	data->zoom = 1;
-	data->depth = 1;
-	data->rotx = 45;
-	data->roty = 0;
-	data->rotz = -60;
 	data->posx = data->win_w / 2;
 	data->posy = data->win_h / 2;
 	data->min_x = -2;
@@ -88,7 +84,7 @@ int			main(int ac, char **av)
 		else
 			i++;
 	}
-	g_frac[i].frac == NULL ? g_frac[i].func() : i;
+	g_frac[i].name == NULL ? g_frac[i].func() : i;
 	if (!(data->mlx = mlx_init()))
 		return (-1);
 	set_data(data, i);

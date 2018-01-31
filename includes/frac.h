@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/29 21:45:21 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/01/31 17:04:47 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.02  /  "
+# define WIN "FractaCraft 0.02.1  /  "
 # define BLUR 0x99000000
 # define BG 0
 # define BLUE 0x000000ff
@@ -44,9 +44,7 @@ typedef struct	s_data
 {
 	void		*mlx;
 	void		*win;
-	void		*win2;
 	char		*name;
-	char		*name2;
 	int			win_h;
 	int			win_w;
 	double		zoom;
@@ -57,9 +55,6 @@ typedef struct	s_data
 	double		max_y;
 	double		posx;
 	double		posy;
-	double		rotx;
-	double		roty;
-	double		rotz;
 	double		mouse_x;
 	double		mouse_y;
 	double		mousef;
@@ -88,6 +83,9 @@ int				ft_controler(int x, int y, void *param);
 
 int				julia();
 int				mandel();
+int				dragon();
+int				list();
+int				help();
 int				none();
 
 #endif

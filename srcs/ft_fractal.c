@@ -6,13 +6,14 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 09:25:10 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/29 21:30:35 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/01/31 16:53:55 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "frac.h"
 #include "palette.h"
 #include "mlx.h"
+#include <math.h>
 
 int		ft_recurence(t_coor z, t_coor c, int *color, t_data *data)
 {
@@ -30,14 +31,12 @@ int		ft_recurence(t_coor z, t_coor c, int *color, t_data *data)
 			return (0);
 		i++;
 		*color = g_pal[i % 25];
-/*		*color += ((i * 0x000a0a));*/
 	}
 	return (1);
 }
 
 int		julia(t_data *data)
 {
-	int			i;
 	int			color;
 	t_coor		p;
 	t_coor		c;
@@ -46,27 +45,53 @@ int		julia(t_data *data)
 
 	delta.x = (data->max_x - data->min_x) * data->zoom;
 	delta.y = (data->max_y - data->min_y) * data->zoom;
-	p.y = 0;
+	p.y = -1;
 	c.x = data->mouse_x / (data->win_w / 2);
 	c.y = data->mouse_y / (data->win_h / 2);
-	while (p.y < data->win_h)
+	while (++p.y < data->win_h)
 	{
 		z.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
-		p.x = 0;
-		while (p.x < data->win_w)
+		p.x = -1;
+		while (++p.x < data->win_w)
 		{
 			z.x = (p.x / data->win_w) * delta.x + (data->min_x * data->zoom);
-			i = (p.x * 4) + (p.y * data->frame.s_l);
+			z.z = (p.x * 4) + (p.y * data->frame.s_l);
 			if (ft_recurence(z, c, &color, data) == 0)
-				*(int*)(data->frame.img + i) = color;
-			p.x++;
+				*(int*)(data->frame.img + (int)z.z) = color;
 		}
-		p.y++;
 	}
 	return (1);
 }
 
 int		mandel(t_data *data)
+{
+	int			color;
+	t_coor		p;
+	t_coor		c;
+	t_coor		z;
+	t_coor		delta;
+
+	delta.x = (data->max_x - data->min_x) * data->zoom;
+	delta.y = (data->max_y - data->min_y) * data->zoom;
+	p.y = -1;
+	z.x = 0;
+	z.y = 0;
+	while (++p.y < data->win_h)
+	{
+		c.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
+		p.x = -1;
+		while (++p.x < data->win_w)
+		{
+			c.x = (p.x / data->win_w) * delta.x + (data->min_x * data->zoom);
+			delta.z = (p.x * 4) + (p.y * data->frame.s_l);
+			if (ft_recurence(z, c, &color, data) == 0)
+				*(int*)(data->frame.img + (int)delta.z) = color;
+		}
+	}
+	return (1);
+}
+
+int		dragon(t_data *data)
 {
 	int			i;
 	int			color;
@@ -78,20 +103,25 @@ int		mandel(t_data *data)
 	delta.x = (data->max_x - data->min_x) * data->zoom;
 	delta.y = (data->max_y - data->min_y) * data->zoom;
 	p.y = 0;
-	z.x = 0;
-	z.y = 0;
+	z.z = 45;
+	c.x = 0;
+	c.y = 0;
 	while (p.y < data->win_h)
 	{
-		c.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
 		p.x = 0;
+		z.y = (1 / sqrt(2)) * ((p.x * sin(z.z)) + (p.y * cos(z.z)));
+		c.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
 		while (p.x < data->win_w)
 		{
 			c.x = (p.x / data->win_w) * delta.x + (data->min_x * data->zoom);
+			z.x = (1 / sqrt(2)) * ((p.x * cos(z.z)) - (p.y * sin(z.z)));
 			i = (p.x * 4) + (p.y * data->frame.s_l);
 			if (ft_recurence(z, c, &color, data) == 0)
 				*(int*)(data->frame.img + i) = color;
 			p.x++;
+			z.z = z.z + 90 % 360;
 		}
+		z.z = z.z + 90 % 360;
 		p.y++;
 	}
 	return (1);

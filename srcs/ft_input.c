@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:53:12 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/29 21:43:38 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/01/31 17:02:48 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,39 +44,10 @@ static int		ft_transl(int key, t_data *data)
 	return (0);
 }
 
-void			usage(int err)
-{
-	if (err == 1)
-	{
-		ft_putendl("Arguments incorrectes :\t- ./fractol [fractale]");
-		ft_putendl("\nListe des fractales :\t - Julia");
-		ft_putendl("\t\t\t - Mandelbrot");
-		ft_putendl("\t\t\t - Pythagore");
-	}
-	if (err == 2)
-	{
-		ft_putendl("Fractale inconnue.\n");
-		ft_putendl("\nListe des fractales :\t - Julia");
-		ft_putendl("\t\t\t - Mandelbrot");
-		ft_putendl("\t\t\t - Pythagore");
-	}
-	if (err == 3)
-		ft_putendl("File is not a supported file : text file or .fdf only.\n");
-	if (err == 4)
-	{
-		ft_putstr("File is not valid : ");
-		ft_putendl("must contain a constant size along the lines.\n");
-	}
-	if (err == ZMAX)
-		ft_putendl("\nFile contain a z coordonate too high.\nMax : 5'000.\n");
-	exit(0);
-}
-
 int				ft_zoom(int key, int x, int y, void *param)
 {
 	t_data *data;
 	t_coor delta;
-	t_coor p;
 
 	x = 0;
 	y = 0;
@@ -87,18 +58,11 @@ int				ft_zoom(int key, int x, int y, void *param)
 	delta.y = (data->max_y - data->min_y) * data->zoom;
 	if (key == 4)
 	{
-		data->mousef /= 1.0000000000000001;
-		p.y = (data->mouse_y * (delta.y / 2)) / (data->win_h / 2);
-		p.x = (data->mouse_x * (delta.x / 2)) / (data->win_w / 2);
+		data->mousef *= .9;
 		data->max_y += data->mouse_y / delta.y / data->mousef;
 		data->min_y += data->mouse_y / delta.y / data->mousef;
 		data->max_x += data->mouse_x / delta.x / data->mousef;
 		data->min_x += data->mouse_x / delta.x / data->mousef;
-	/*	ft_putendl("");
-		ft_putnbr(data->max_y + data->mouse_y / delta.y / data->mousef);
-		ft_putendl("");
-		ft_putnbr(data->min_y + data->mouse_y / delta.y / data->mousef);
-		ft_putendl("\n"); */
 		data->zoom = data->zoom / 1.1;
 	}
 	data->frame.img = ft_intset(data->frame.img, BG, data->win_w * data->win_h);
@@ -121,7 +85,7 @@ int				ft_exit(int key, void *param)
 	data = (t_data *)param;
 	if (key == 53)
 		ft_close();
-	if (key == 15)
+	if (key == 35)
 		data->flag == 0 ? data->flag++ : data->flag--;
 	if (key == 15)
 	{
@@ -134,9 +98,6 @@ int				ft_exit(int key, void *param)
 		data->max_y = 2;
 	}
 	ft_transl(key, data);
-	key == 89 ? data->depth += 1 : key;
-	if (key == 83 && data->depth > -10)
-		data->depth -= 1;
 	key == 82 ? (data->flag = (data->flag + 1) % 2) : key;
 	data->frame.img = ft_intset(data->frame.img, BG, data->win_w * data->win_h);
 	data->func(data);
