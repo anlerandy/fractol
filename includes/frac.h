@@ -84,6 +84,7 @@ int				ft_controler(int x, int y, void *param);
 int				julia();
 int				mandel();
 int				dragon();
+
 int				list();
 int				help();
 int				none();
