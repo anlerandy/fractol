@@ -6,14 +6,14 @@
 #    By: alerandy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/12 12:43:59 by alerandy          #+#    #+#              #
-#    Updated: 2018/02/07 12:37:41 by alerandy         ###   ########.fr        #
+#    Updated: 2018/02/07 19:49:10 by alerandy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 SRC_PATH = srcs/
 OBJ_PATH = objects/
-SRC_NAME = main.c ft_input.c ft_memclr.c ft_putpixel.c ft_strint.c \
+SRC_NAME = main.c ft_input.c ft_memclr.c ft_strint.c \
 		   ft_fractal.c ft_mouse.c usage.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
