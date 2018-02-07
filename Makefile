@@ -6,7 +6,7 @@
 #    By: alerandy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/12 12:43:59 by alerandy          #+#    #+#              #
-#    Updated: 2018/01/31 16:16:34 by alerandy         ###   ########.fr        #
+#    Updated: 2018/02/07 12:37:41 by alerandy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,11 +57,16 @@ re : fclean $(NAME)
 	@printf "\033[9A\r\033[K""\033[32mLibrairie mlx compilé avec succès.\033[0m\n"
 
 norm :
+	@clear
 	@norminette srcs/ includes/
 
 norml :
+	@clear
 	@norminette libft/srcs/ libft/includes/
 
-normall : norm norml;
+normall :
+	@clear
+	@norminette srcs/ includes/
+	@norminette libft/srcs/ libft/includes/
 
 .PHONY : fclean re norm success minilibx libft all

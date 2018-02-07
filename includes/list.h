@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 13:30:33 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/31 16:59:43 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/07 12:25:13 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ t_frac	g_frac[] =
 {
 	{&julia, "julia", "Ensemble de Julia"},
 	{&mandel, "mandelbrot", "Ensemble de Mandelbrot"},
-	{&dragon, "dragon", "Courbe du dragon Heighway"},
+	{&mandel, "mandel", "Ensemble de Mandelbrot"},
+	{&burn, "burning", "The Burning Ship"},
+	{&burn, "ship", "The Burning Ship"},
+	{&burn, "burn", "The Burning Ship"},
+	{&burn, "burning ship", "The Burning Ship"},
 	{&help, "-h", NULL},
 	{&help, "-aide", NULL},
 	{&list, "-liste", NULL},

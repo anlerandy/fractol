@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 12:07:38 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/31 16:57:19 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/07 18:52:00 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ static void	set_data(t_data *data, int i)
 	data->win_h = 1100;
 	data->name = ft_strjoin(WIN, g_frac[i].name);
 	data->zoom = 1;
-	data->posx = data->win_w / 2;
-	data->posy = data->win_h / 2;
 	data->min_x = -2;
 	data->min_y = -2;
 	data->max_x = 2;
 	data->max_y = 2;
 	data->mousef = 550;
 	data->iter = 25;
+	data->center.x = 0;
+	data->center.y = 0;
 }
 
 static int	set_image(t_data *data)

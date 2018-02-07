@@ -6,16 +6,19 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 09:23:03 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/23 09:45:28 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/07 19:35:01 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strint(const char *haystack, const char *needle)
+int		ft_strint(char *haystack, const char *needle)
 {
 	size_t		i;
 
+	i = -1;
+	while (haystack[++i])
+		haystack[i] = ft_tolower(haystack[i]);
 	i = 0;
 	if (!needle[i])
 		return (1);

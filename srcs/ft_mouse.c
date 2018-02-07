@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/28 13:04:08 by alerandy          #+#    #+#             */
-/*   Updated: 2018/01/31 16:48:42 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/07 12:38:16 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,6 @@ int			ft_controler(int x, int y, void *param)
 		data->mouse_x = x - (data->win_w / 2);
 		data->mouse_y = y - (data->win_h / 2);
 	}
-/*	ft_putstr("Coordonnées x : ");
-	ft_putnbr(x - (data->win_w / 2));
-	ft_putstr(" (");
-	ft_putnbr(p.x);
-	ft_putendl(")");
-	ft_putstr("Coordonnées y : ");
-	ft_putnbr((y - (data->win_h / 2)) * -1);
-	ft_putstr(" (");
-	ft_putnbr(p.y);
-	ft_putendl(")");*/
 	data->frame.img = ft_intset(data->frame.img, BG, data->win_w * data->win_h);
 	data->func(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->frame.pimg, 0, 0);
