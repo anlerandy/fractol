@@ -24,19 +24,6 @@ static void	ft_input(t_data *data)
 	mlx_loop(data->mlx);
 }
 
-char		*ft_intset(char *tab, int i, int size)
-{
-	int x;
-
-	x = 0;
-	while (x < size)
-	{
-		((int*)tab)[x] = i;
-		x++;
-	}
-	return (tab);
-}
-
 static void	set_data(t_data *data, int i)
 {
 	data->win_w = 1100;
@@ -66,6 +53,33 @@ static int	set_image(t_data *data)
 	return (0);
 }
 
+int			second(char *av)
+{
+	int		i;
+	int		a;
+	t_data	*data;
+
+	a = 0;
+	i = 0;
+	if (!(data = ft_memalloc(sizeof(t_data))))
+		return (-1);
+	while (g_frac[i].frac && !a)
+	{
+		if ((a = ft_strint(av, g_frac[i].frac)) == 1)
+			data->func = g_frac[i].func;
+		else
+			i++;
+	}
+	g_frac[i].name == NULL ? g_frac[i].func() : i;
+	if (!(data->mlx = mlx_init()))
+		return (-1);
+	set_data(data, i);
+	set_image(data);
+	data->func(data);
+	ft_input(data);
+	return (1);
+}
+
 int			main(int ac, char **av)
 {
 	t_data	*data;
@@ -84,6 +98,7 @@ int			main(int ac, char **av)
 		else
 			i++;
 	}
+	g_frac[i].name == NULL ? free(data) : i;
 	g_frac[i].name == NULL ? g_frac[i].func() : i;
 	if (!(data->mlx = mlx_init()))
 		return (-1);

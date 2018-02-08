@@ -15,9 +15,9 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.03.3  /  "
+# define WIN "FractaCraft 0.03.31  /  "
 # define BLUR 0x99000000
-# define BG 0
+# define BG 0x000000
 # define BLUE 0x000000ff
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
@@ -79,6 +79,8 @@ void			usage(int err);
 int				ft_close(void);
 int				ft_strint(const char *haystack, const char *needle);
 int				ft_controler(int x, int y, void *param);
+
+int				second(char *av);
 
 int				julia();
 int				mandel();

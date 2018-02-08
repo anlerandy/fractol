@@ -14,13 +14,20 @@
 
 int		list(void)
 {
+	char	*line;
+
+	line = NULL;
 	ft_putendl("Liste des fractales :\t - Julia");
 	ft_putendl("\t\t\t - Mandelbrot");
 	ft_putendl("\t\t\t - Burning ship (N'oubliez pas les guillemets)\n\n");
 	ft_putstr("NB : FractaCraft est insensible à la casse (julia = JULIA = Ju");
 	ft_putstr("LiA)\n     Les Fractales peuvent être abréviés (p. ex. mandel ");
-	ft_putendl("pour mandelbrot ; burn pour Burning ship).");
-	exit(0);
+	ft_putendl("pour mandelbrot ; burn pour Burning ship).\n\n");
+	ft_putstr("Tapez le nom de la fractale que vous voulez lancer (exit pour ");
+	ft_putstr("quitter) : ");
+	get_next_line(0, &line);
+	second(line);
+	return (0);
 }
 
 int		help(void)
@@ -53,7 +60,6 @@ int		help2(void)
 	ft_putendl("uvements de la souris (Julia uniquement).");
 	ft_putstr("\t\t\t - '2' Centrer sur le deuxième bâteau (Burning ship uniq");
 	ft_putendl("uement).");
-	ft_putendl("\t\t\t - 'h' Affiche l'aide dans le terminale.");
 	return (0);
 }
 
@@ -64,13 +70,15 @@ void	usage(int err)
 		ft_putendl("");
 		ft_putendl("Arguments incorrectes :\t- ./fractol (-l) (-h) [fractale]");
 		ft_putendl("\t\t\t-l ou -list : Liste des fractales disponibles.");
-		ft_putendl("\t\t\t-h ou -help : Liste des commandes disponibles.");
-		ft_putstr("NB : Il ne peux y avoir qu'un seul argument en paramètres");
+		ft_putendl("\t\t\t-h ou -help : Liste des commandes disponibles.\n");
+		ft_putstr("NB : Il ne peux y avoir qu'un seul argument en paramètres.");
+		ft_putendl("\n");
 	}
 	if (err == 2)
 	{
 		ft_putendl("\nFractale inconnue.\n");
 		list();
+		return ;
 	}
 	exit(0);
 }

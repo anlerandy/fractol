@@ -30,6 +30,7 @@ t_frac	g_frac[] =
 	{&help, "-help", NULL},
 	{&list, "-list", NULL},
 	{&list, "-l", NULL},
+	{&ft_close, "exit", NULL},
 	{&none, NULL, NULL},
 };
 

@@ -15,6 +15,19 @@
 #include <stdio.h>
 #define MOUSEF 550
 
+char		*ft_intset(char *tab, int i, int size)
+{
+	int x;
+
+	x = 0;
+	while (x < size)
+	{
+		((int*)tab)[x] = i;
+		x++;
+	}
+	return (tab);
+}
+
 static int		ft_transl(int key, t_data *data)
 {
 	if (key == 4)
