@@ -17,9 +17,9 @@ int		list(void)
 	char	*line;
 
 	line = NULL;
-	ft_putendl("Liste des fractales :\t - Julia");
+	ft_putendl("\nListe des fractales :\t - Julia");
 	ft_putendl("\t\t\t - Mandelbrot");
-	ft_putendl("\t\t\t - Burning ship (N'oubliez pas les guillemets)\n\n");
+	ft_putendl("\t\t\t - Burning ship\n\n");
 	ft_putstr("NB : FractaCraft est insensible à la casse (julia = JULIA = Ju");
 	ft_putstr("LiA)\n     Les Fractales peuvent être abréviés (p. ex. mandel ");
 	ft_putendl("pour mandelbrot ; burn pour Burning ship).\n\n");

@@ -63,14 +63,15 @@ int			second(char *av)
 	i = 0;
 	if (!(data = ft_memalloc(sizeof(t_data))))
 		return (-1);
-	while (g_frac[i].frac && !a)
+	while (g_frac2[i].frac && !a)
 	{
-		if ((a = ft_strint(av, g_frac[i].frac)) == 1)
-			data->func = g_frac[i].func;
+		if ((a = ft_strint(av, g_frac2[i].frac)) == 1)
+			data->func = g_frac2[i].func;
 		else
 			i++;
 	}
-	g_frac[i].name == NULL ? g_frac[i].func() : i;
+	g_frac2[i].name == NULL ? free(data) : i;
+	g_frac2[i].name == NULL ? g_frac2[i].func() : i;
 	if (!(data->mlx = mlx_init()))
 		return (-1);
 	set_data(data, i);

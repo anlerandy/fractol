@@ -30,7 +30,21 @@ t_frac	g_frac[] =
 	{&help, "-help", NULL},
 	{&list, "-list", NULL},
 	{&list, "-l", NULL},
+	{&none, NULL, NULL},
+};
+
+t_frac	g_frac2[] =
+{
+	{&julia, "julia", "Ensemble de Julia"},
+	{&mandel, "mandelbrot", "Ensemble de Mandelbrot"},
+	{&mandel, "mandel", "Ensemble de Mandelbrot"},
+	{&burn, "burning", "The Burning Ship"},
+	{&burn, "ship", "The Burning Ship"},
+	{&burn, "burn", "The Burning Ship"},
+	{&burn, "burning ship", "The Burning Ship"},
 	{&ft_close, "exit", NULL},
+	{&ft_close, "quit", NULL},
+	{&ft_close, "q", NULL},
 	{&none, NULL, NULL},
 };
 
