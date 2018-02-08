@@ -35,6 +35,7 @@ t_frac	g_frac[] =
 
 t_frac	g_frac2[] =
 {
+	{&list, "", NULL},
 	{&julia, "julia", "Ensemble de Julia"},
 	{&mandel, "mandelbrot", "Ensemble de Mandelbrot"},
 	{&mandel, "mandel", "Ensemble de Mandelbrot"},

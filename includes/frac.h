@@ -22,13 +22,12 @@
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
 # define RED 0x00ff0000
-# define ZMAX 5000
 
 typedef struct	s_coor
 {
 	double		x;
 	double		y;
-	float		z;
+	double		z;
 }				t_coor;
 
 typedef struct	s_frame
@@ -55,7 +54,6 @@ typedef struct	s_data
 	t_coor		center;
 	double		mouse_x;
 	double		mouse_y;
-	double		mousef;
 	int			flag;
 	int			flag2;
 	int			iter;
@@ -81,6 +79,8 @@ int				ft_strint(const char *haystack, const char *needle);
 int				ft_controler(int x, int y, void *param);
 
 int				second(char *av);
+int				ft_recurence(t_coor z, t_coor c, int *color, t_data *data);
+int				ft_recurence2(t_coor z, t_coor c, int *color, t_data *data);
 
 int				julia();
 int				mandel();

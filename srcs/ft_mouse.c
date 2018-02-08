@@ -29,9 +29,10 @@ int			ft_controler(int x, int y, void *param)
 	{
 		data->mouse_x = x - (data->win_w / 2);
 		data->mouse_y = y - (data->win_h / 2);
+		data->frame.img = ft_intset(data->frame.img, BG, data->win_w *
+		data->win_h);
+		data->func(data);
+		mlx_put_image_to_window(data->mlx, data->win, data->frame.pimg, 0, 0);
 	}
-	data->frame.img = ft_intset(data->frame.img, BG, data->win_w * data->win_h);
-	data->func(data);
-	mlx_put_image_to_window(data->mlx, data->win, data->frame.pimg, 0, 0);
 	return (0);
 }

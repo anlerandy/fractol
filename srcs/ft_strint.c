@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-int		ft_strint(char *haystack, const char *needle)
+int		ft_strint(const char *haystack, char *needle)
 {
 	size_t		i;
 
 	i = -1;
-	while (haystack[++i])
-		haystack[i] = ft_tolower(haystack[i]);
+	while (needle[++i])
+		needle[i] = ft_tolower(needle[i]);
 	i = 0;
 	if (!needle[i])
 		return (1);
@@ -30,5 +30,5 @@ int		ft_strint(char *haystack, const char *needle)
 		if (!needle[i])
 			return (1);
 	}
-	return (ft_strint(haystack + 1, needle));
+	return (0);
 }

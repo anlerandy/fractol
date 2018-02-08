@@ -12,8 +12,6 @@
 
 #include "frac.h"
 #include "mlx.h"
-#include <stdio.h>
-#define MOUSEF 550
 
 char		*ft_intset(char *tab, int i, int size)
 {

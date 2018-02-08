@@ -34,7 +34,6 @@ static void	set_data(t_data *data, int i)
 	data->min_y = -2;
 	data->max_x = 2;
 	data->max_y = 2;
-	data->mousef = 550;
 	data->iter = 25;
 	data->center.x = 0;
 	data->center.y = 0;
@@ -65,7 +64,7 @@ int			second(char *av)
 		return (-1);
 	while (g_frac2[i].frac && !a)
 	{
-		if ((a = ft_strint(av, g_frac2[i].frac)) == 1)
+		if ((a = ft_strint(g_frac2[i].frac, av)) == 1)
 			data->func = g_frac2[i].func;
 		else
 			i++;
@@ -94,7 +93,7 @@ int			main(int ac, char **av)
 		return (-1);
 	while (g_frac[i].frac && !a)
 	{
-		if ((a = ft_strint(av[1], g_frac[i].frac)) == 1)
+		if ((a = ft_strint(g_frac[i].frac, av[1])) == 1)
 			data->func = g_frac[i].func;
 		else
 			i++;
