@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 13:30:33 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/07 12:25:13 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 12:25:03 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ t_frac	g_frac[] =
 	{&burn, "ship", "The Burning Ship"},
 	{&burn, "burn", "The Burning Ship"},
 	{&burn, "burning ship", "The Burning Ship"},
+	{&celt, "celtic", "Ensemble Celtic"},
+	{&celt, "celt", "Ensemble Celtic"},
+	{&celt, "celtic mandelbrot", "Ensemble Celtic"},
 	{&help, "-h", NULL},
 	{&help, "-aide", NULL},
 	{&list, "-liste", NULL},

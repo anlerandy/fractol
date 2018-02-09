@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 10:45:07 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 11:47:26 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 12:22:51 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,26 @@ int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
 	while (i < data->iter)
 	{
 		xt = z.x * z.x - z.y * z.y + c.x;
+		z.y = 2 * (z.x * z.y) + c.y;
+		z.x = xt;
+		if ((z.x * z.x) + (z.y * z.y) > 4)
+			return (0);
+		i++;
+		*color = g_pal[data->col][i % 50];
+	}
+	return (1);
+}
+
+int		ft_recurence4(t_coor z, t_coor c, int *color, t_env *data)
+{
+	int			i;
+	double		xt;
+
+	i = 0;
+	*color = g_pal[data->col][0];
+	while (i < data->iter)
+	{
+		xt = fabs(z.x * z.x - z.y * z.y) + c.x;
 		z.y = 2 * (z.x * z.y) + c.y;
 		z.x = xt;
 		if ((z.x * z.x) + (z.y * z.y) > 4)

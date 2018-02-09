@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 11:39:06 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 12:27:14 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.04  /  "
+# define WIN "FractaCraft 0.04.2  /  "
 # define BLUR 0x99000000
 # define BG 0x000000
 # define BLUE 0x000000ff
@@ -101,10 +101,12 @@ int				second(char *av);
 t_env			set_env(t_data *data);
 int				ft_recurence2(t_coor z, t_coor c, int *color, t_env *data);
 int				ft_recurence3(t_coor z, t_coor c, int *color, t_env *data);
+int				ft_recurence4(t_coor z, t_coor c, int *color, t_env *data);
 
 int				julia();
 int				mandel();
 int				burn();
+int				celt();
 int				list();
 int				help();
 int				help2();
