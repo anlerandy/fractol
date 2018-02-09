@@ -28,8 +28,9 @@ char			*ft_intset(char *tab, int i, int size)
 
 static int		ft_transl(int key, t_data *data)
 {
-	key == 6 && data->pow > 2 ? data->pow-- : key;
-	key == 7 ? data->pow++ : key;
+	key == 6 && data->pow > 2 ? (data->pow -= 1) : key;
+	key == 7 && data->pow < 51 ? (data->pow += 1) : key;
+	key == 50 ? (data->pow = 2) : key;
 	if (key == 8)
 		data->col == 0 ? data->col++ : data->col--;
 	if (key == 4)
@@ -56,13 +57,9 @@ static int		ft_transl(int key, t_data *data)
 int				ft_zoom(int key, int x, int y, void *param)
 {
 	t_data		*data;
-	t_coor		tmp;
 
 	data = (t_data *)param;
-	tmp.x = data->center.x;
-	tmp.y = data->center.y;
-	x = 0;
-	y = 0;
+	x = y;
 	if (key == 5)
 		data->zoom *= 1.1;
 	if (key == 4)
@@ -89,8 +86,7 @@ int				ft_exit(int key, void *param)
 	t_data *data;
 
 	data = (t_data *)param;
-	if (key == 53)
-		ft_close();
+	key == 53 ? ft_close() : key;
 	if (key == 35)
 		data->flag == 0 ? data->flag++ : data->flag--;
 	if (key == 15)

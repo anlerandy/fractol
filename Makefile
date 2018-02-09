@@ -13,7 +13,7 @@
 NAME = fractol
 SRC_PATH = srcs/
 OBJ_PATH = objects/
-SRC_NAME = main.c ft_input.c ft_memclr.c ft_strint.c ft_recur.c ft_fractal2.c \
+SRC_NAME = main.c ft_input.c ft_strint.c ft_recur.c ft_fractal2.c \
 		   ft_fractal.c ft_mouse.c usage.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

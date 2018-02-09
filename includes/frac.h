@@ -62,7 +62,7 @@ typedef struct	s_data
 	t_frame		frame;
 	int			part;
 	int			col;
-	int			pow;
+	double		pow;
 	int			(*func)();
 }				t_data;
 
@@ -80,7 +80,7 @@ typedef struct	s_env
 	t_frame		*frame;
 	int			iter;
 	int			col;
-	int			pow;
+	double		pow;
 	int			flag3;
 }				t_env;
 
@@ -105,7 +105,6 @@ int				second(char *av);
 t_env			set_env(t_data *data);
 int				ft_recurence2(t_coor z, t_coor c, int *color, t_env *data);
 int				ft_recurence3(t_coor z, t_coor c, int *color, t_env *data);
-int				ft_recurence4(t_coor z, t_coor c, int *color, t_env *data);
 
 int				julia();
 int				mandel();

@@ -62,6 +62,7 @@ int		help2(void)
 	ft_putendl("uement).");
 	ft_putstr("\t\t\t - 'z' & 'x' Diminuer ou augmenter la puissance du Mande");
 	ft_putendl("lbrot (ou Multibrot).");
+	ft_putendl("\t\t\t - '>' Retour au Mandelbrot (Multibrot uniquement).");
 	return (0);
 }
 
