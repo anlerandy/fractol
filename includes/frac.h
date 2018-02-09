@@ -15,13 +15,14 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.03.31  /  "
+# define WIN "FractaCraft 0.04  /  "
 # define BLUR 0x99000000
 # define BG 0x000000
 # define BLUE 0x000000ff
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
 # define RED 0x00ff0000
+# define THREADS 2
 
 typedef struct	s_coor
 {
@@ -58,8 +59,24 @@ typedef struct	s_data
 	int			flag2;
 	int			iter;
 	t_frame		frame;
+	int			part;
 	int			(*func)();
 }				t_data;
+
+typedef struct	s_env
+{
+	int			win_h;
+	int			win_w;
+	double		zoom;
+	int			part;
+	double		mouse_x;
+	double		mouse_y;
+	t_coor		delta;
+	double		min_y;
+	double		min_x;
+	t_frame		*frame;
+	int			iter;
+}				t_env;
 
 typedef struct	s_frac
 {
@@ -79,8 +96,9 @@ int				ft_strint(const char *haystack, const char *needle);
 int				ft_controler(int x, int y, void *param);
 
 int				second(char *av);
-int				ft_recurence(t_coor z, t_coor c, int *color, t_data *data);
-int				ft_recurence2(t_coor z, t_coor c, int *color, t_data *data);
+t_env			set_env(t_data *data);
+int				ft_recurence2(t_coor z, t_coor c, int *color, t_env *data);
+int				ft_recurence3(t_coor z, t_coor c, int *color, t_env *data);
 
 int				julia();
 int				mandel();

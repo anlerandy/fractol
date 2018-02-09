@@ -3,7 +3,25 @@
 #include "palette.h"
 #include <math.h>
 
-int		ft_recurence(t_coor z, t_coor c, int *color, t_data *data)
+t_env	set_env(t_data *data)
+{
+	t_env	env;
+
+	env.frame = &(data->frame);
+	env.win_h = data->win_h;
+	env.win_w = data->win_w;
+	env.delta.x = (data->max_x - data->min_x) * data->zoom;
+	env.delta.y = (data->max_y - data->min_y) * data->zoom;
+	env.min_x = data->min_x;
+	env.min_y = data->min_y;
+	env.zoom = data->zoom;
+	env.mouse_x = data->mouse_x;
+	env.mouse_y = data->mouse_y;
+	env.iter = data->iter;
+	return (env);
+}
+
+int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
 {
 	int			i;
 	double		xt;
@@ -23,7 +41,7 @@ int		ft_recurence(t_coor z, t_coor c, int *color, t_data *data)
 	return (1);
 }
 
-int		ft_recurence2(t_coor z, t_coor c, int *color, t_data *data)
+int		ft_recurence2(t_coor z, t_coor c, int *color, t_env *data)
 {
 	int			i;
 	double		xt;

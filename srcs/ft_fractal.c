@@ -12,88 +12,102 @@
 
 #include "frac.h"
 #include "mlx.h"
+#include <pthread.h>
+
+void	*pth_julia(void *arg)
+{
+	t_env		*data;
+	t_coor		p;
+	t_coor		c;
+	t_coor		z;
+	int			color;
+
+	data = (t_env *)arg;
+	p.y = -1 + ((data->win_h / THREADS) * (data->part - 1));
+	c.x = data->mouse_x / (data->win_w / 2);
+	c.y = data->mouse_y / (data->win_h / 2);
+	while (++p.y < data->win_h / THREADS * data->part)
+	{
+		z.y = (p.y / data->win_h) * data->delta.y + (data->min_y * data->zoom);
+		p.x = -1;
+		while (++p.x < data->win_w)
+		{
+			z.x = (p.x / data->win_w) * data->delta.x + (data->min_x *
+			data->zoom);
+			z.z = (p.x * 4) + (p.y * data->frame->s_l);
+			if (ft_recurence3(z, c, &color, data) == 0)
+				*(int*)(data->frame->img + (int)z.z) = color;
+		}
+	}
+	pthread_exit(NULL);
+}
 
 int		julia(t_data *data)
+{
+	pthread_t	pth[THREADS];
+	int			i;
+	t_env		env[THREADS];
+
+	i = 0;
+	
+	while (i < THREADS)
+	{
+		env[i] = set_env(data);
+		env[i].part = i + 1;
+		pthread_create(&pth[i], NULL, pth_julia, &(env[i]));
+		++i;
+	}
+	i = 0;
+	while (i < THREADS)
+		pthread_join(pth[i++], NULL);
+	return (1);
+}
+
+void	*pth_mandel(void *arg)
 {
 	int			color;
 	t_coor		p;
 	t_coor		c;
 	t_coor		z;
-	t_coor		delta;
+	t_env		*data;
 
-	delta.x = (data->max_x - data->min_x) * data->zoom;
-	delta.y = (data->max_y - data->min_y) * data->zoom;
-	p.y = -1;
-	c.x = data->mouse_x / (data->win_w / 2);
-	c.y = data->mouse_y / (data->win_h / 2);
-	while (++p.y < data->win_h)
+	data = (t_env *)arg;
+	p.y = -1 + ((data->win_h / THREADS) * (data->part - 1));
+	z.x = 0;
+	z.y = 0;
+	while (++p.y < data->win_h / THREADS * data->part)
 	{
-		z.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
+		c.y = (p.y / data->win_h) * data->delta.y + (data->min_y * data->zoom);
 		p.x = -1;
 		while (++p.x < data->win_w)
 		{
-			z.x = (p.x / data->win_w) * delta.x + (data->min_x * data->zoom);
-			z.z = (p.x * 4) + (p.y * data->frame.s_l);
-			if (ft_recurence(z, c, &color, data) == 0)
-				*(int*)(data->frame.img + (int)z.z) = color;
+			c.x = (p.x / data->win_w) * data->delta.x + (data->min_x *
+			data->zoom);
+			data->delta.z = (p.x * 4) + (p.y * data->frame->s_l);
+			if (ft_recurence3(z, c, &color, data) == 0)
+				*(int*)(data->frame->img + (int)data->delta.z) = color;
 		}
 	}
-	return (1);
+	pthread_exit(NULL);
 }
 
 int		mandel(t_data *data)
 {
-	int			color;
-	t_coor		p;
-	t_coor		c;
-	t_coor		z;
-	t_coor		delta;
+	pthread_t	pth[THREADS];
+	int			i;
+	t_env		env[THREADS];
 
-	delta.x = (data->max_x - data->min_x) * data->zoom;
-	delta.y = (data->max_y - data->min_y) * data->zoom;
-	p.y = -1;
-	z.x = 0;
-	z.y = 0;
-	while (++p.y < data->win_h)
+	i = 0;
+	
+	while (i < THREADS)
 	{
-		c.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
-		p.x = -1;
-		while (++p.x < data->win_w)
-		{
-			c.x = (p.x / data->win_w) * delta.x + (data->min_x * data->zoom);
-			delta.z = (p.x * 4) + (p.y * data->frame.s_l);
-			if (ft_recurence(z, c, &color, data) == 0)
-				*(int*)(data->frame.img + (int)delta.z) = color;
-		}
+		env[i] = set_env(data);
+		env[i].part = i + 1;
+		pthread_create(&pth[i], NULL, pth_mandel, &(env[i]));
+		++i;
 	}
-	return (1);
-}
-
-int		burn(t_data *data)
-{
-	int			color;
-	t_coor		p;
-	t_coor		c;
-	t_coor		z;
-	t_coor		delta;
-
-	data->flag2 = 1;
-	delta.x = (data->max_x - data->min_x) * data->zoom;
-	delta.y = (data->max_y - data->min_y) * data->zoom;
-	p.y = -1;
-	z.x = 0;
-	z.y = 0;
-	while (++p.y < data->win_h)
-	{
-		c.y = (p.y / data->win_h) * delta.y + (data->min_y * data->zoom);
-		p.x = -1;
-		while (++p.x < data->win_w)
-		{
-			c.x = (p.x / data->win_w) * delta.x + (data->min_x * data->zoom);
-			delta.z = (p.x * 4) + (p.y * data->frame.s_l);
-			if (ft_recurence2(z, c, &color, data) == 0)
-				*(int*)(data->frame.img + (int)delta.z) = color;
-		}
-	}
+	i = 0;
+	while (i < THREADS)
+		pthread_join(pth[i++], NULL);
 	return (1);
 }
