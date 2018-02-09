@@ -28,7 +28,7 @@ char			*ft_intset(char *tab, int i, int size)
 
 static int		ft_transl(int key, t_data *data)
 {
-	key == 6 ? data->pow-- : key;
+	key == 6 && data->pow > 2 ? data->pow-- : key;
 	key == 7 ? data->pow++ : key;
 	if (key == 8)
 		data->col == 0 ? data->col++ : data->col--;
