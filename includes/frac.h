@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:27:14 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 12:56:35 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.04.2  /  "
+# define WIN "FractaCraft 0.04.3  /  "
 # define BLUR 0x99000000
 # define BG 0x000000
 # define BLUE 0x000000ff
@@ -57,6 +57,7 @@ typedef struct	s_data
 	double		mouse_y;
 	int			flag;
 	int			flag2;
+	int			flag3;
 	int			iter;
 	t_frame		frame;
 	int			part;
@@ -78,6 +79,7 @@ typedef struct	s_env
 	t_frame		*frame;
 	int			iter;
 	int			col;
+	int			flag3;
 }				t_env;
 
 typedef struct	s_frac
@@ -107,6 +109,7 @@ int				julia();
 int				mandel();
 int				burn();
 int				celt();
+int				advanced();
 int				list();
 int				help();
 int				help2();

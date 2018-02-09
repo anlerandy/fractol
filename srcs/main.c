@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 12:07:38 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 11:52:59 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 12:43:50 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	set_data(t_data *data, int i)
 	data->max_x = 2;
 	data->max_y = 2;
 	data->iter = 25;
+	data->flag3 = 0;
 	data->center.x = 0;
 	data->center.y = 0;
 }

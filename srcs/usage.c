@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 14:39:48 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:24:41 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 12:56:55 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		list(void)
 
 	line = NULL;
 	ft_putendl("\nListe des fractales :\t - Julia");
+	ft_putendl("\t\t\t - Advanced Julia");
 	ft_putendl("\t\t\t - Mandelbrot");
 	ft_putendl("\t\t\t - Celtic Mandelbrot");
 	ft_putendl("\t\t\t - Burning ship\n\n");
