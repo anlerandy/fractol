@@ -36,6 +36,7 @@ static void	set_data(t_data *data, int i)
 	data->max_y = 2;
 	data->iter = 25;
 	data->flag3 = 0;
+	data->pow = 2;
 	data->center.x = 0;
 	data->center.y = 0;
 }

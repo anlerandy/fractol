@@ -15,7 +15,7 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.04.3  /  "
+# define WIN "FractaCraft 0.04.4  /  "
 # define BLUR 0x99000000
 # define BG 0x000000
 # define BLUE 0x000000ff
@@ -62,6 +62,7 @@ typedef struct	s_data
 	t_frame		frame;
 	int			part;
 	int			col;
+	int			pow;
 	int			(*func)();
 }				t_data;
 
@@ -79,6 +80,7 @@ typedef struct	s_env
 	t_frame		*frame;
 	int			iter;
 	int			col;
+	int			pow;
 	int			flag3;
 }				t_env;
 
