@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_recur.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/09 10:45:07 by alerandy          #+#    #+#             */
+/*   Updated: 2018/02/09 11:47:26 by alerandy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "frac.h"
 #include "palette.h"
@@ -18,6 +29,7 @@ t_env	set_env(t_data *data)
 	env.mouse_x = data->mouse_x;
 	env.mouse_y = data->mouse_y;
 	env.iter = data->iter;
+	env.col = data->col;
 	return (env);
 }
 
@@ -27,7 +39,7 @@ int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
 	double		xt;
 
 	i = 0;
-	*color = RED;
+	*color = g_pal[data->col][0];
 	while (i < data->iter)
 	{
 		xt = z.x * z.x - z.y * z.y + c.x;
@@ -36,7 +48,7 @@ int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 			return (0);
 		i++;
-		*color = g_pal[i % 25];
+		*color = g_pal[data->col][i % 50];
 	}
 	return (1);
 }
@@ -47,7 +59,7 @@ int		ft_recurence2(t_coor z, t_coor c, int *color, t_env *data)
 	double		xt;
 
 	i = 0;
-	*color = RED;
+	*color = g_pal[data->col][0];
 	while (i < data->iter)
 	{
 		xt = z.x * z.x - z.y * z.y + c.x;
@@ -56,7 +68,7 @@ int		ft_recurence2(t_coor z, t_coor c, int *color, t_env *data)
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 			return (0);
 		i++;
-		*color = g_pal[i % 25];
+		*color = g_pal[data->col][i % 50];
 	}
 	return (1);
 }

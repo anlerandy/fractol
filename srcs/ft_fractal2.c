@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fractal2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/09 10:44:31 by alerandy          #+#    #+#             */
+/*   Updated: 2018/02/09 10:44:52 by alerandy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "frac.h"
 #include "mlx.h"
@@ -38,7 +49,6 @@ int		burn(t_data *data)
 	t_env		env[THREADS];
 
 	i = 0;
-
 	data->flag2 = 1;
 	while (i < THREADS)
 	{
@@ -52,4 +62,3 @@ int		burn(t_data *data)
 		pthread_join(pth[i++], NULL);
 	return (1);
 }
-

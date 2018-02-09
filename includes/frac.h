@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/07 19:46:06 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 11:39:06 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
 # define RED 0x00ff0000
-# define THREADS 2
+# define THREADS 4
 
 typedef struct	s_coor
 {
@@ -60,6 +60,7 @@ typedef struct	s_data
 	int			iter;
 	t_frame		frame;
 	int			part;
+	int			col;
 	int			(*func)();
 }				t_data;
 
@@ -76,6 +77,7 @@ typedef struct	s_env
 	double		min_x;
 	t_frame		*frame;
 	int			iter;
+	int			col;
 }				t_env;
 
 typedef struct	s_frac

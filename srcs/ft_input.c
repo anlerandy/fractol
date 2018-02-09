@@ -6,14 +6,14 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:53:12 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/07 19:31:39 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 11:55:47 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "frac.h"
 #include "mlx.h"
 
-char		*ft_intset(char *tab, int i, int size)
+char			*ft_intset(char *tab, int i, int size)
 {
 	int x;
 
@@ -28,6 +28,8 @@ char		*ft_intset(char *tab, int i, int size)
 
 static int		ft_transl(int key, t_data *data)
 {
+	if (key == 8)
+		data->col == 0 ? data->col++ : data->col--;
 	if (key == 4)
 		help2();
 	if (key == 69 || key == 24)

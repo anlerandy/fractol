@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 09:25:10 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/07 18:52:50 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/09 10:46:06 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int		julia(t_data *data)
 	t_env		env[THREADS];
 
 	i = 0;
-	
 	while (i < THREADS)
 	{
 		env[i] = set_env(data);
@@ -98,7 +97,6 @@ int		mandel(t_data *data)
 	t_env		env[THREADS];
 
 	i = 0;
-	
 	while (i < THREADS)
 	{
 		env[i] = set_env(data);
