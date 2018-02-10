@@ -53,10 +53,10 @@ int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
 		!data->flag3 && data->pow < 3 ? xt = (z.x * z.x - z.y * z.y) + c.x : i;
 		!data->flag3 && data->pow < 3 ? (z.y = 2 * (z.x * z.y) + c.y) : i;
 		z.x = xt;
+		*color = g_pal[data->col][i % 50];
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 			return (0);
 		i++;
-		*color = g_pal[data->col][i % 50];
 	}
 	return (1);
 }
