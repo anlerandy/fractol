@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 10:45:07 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 10:02:23 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 22:09:54 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ t_env	set_env(t_data *data)
 	env.flag3 = data->flag3;
 	env.pow = data->pow;
 	return (env);
+}
+
+double	ft_pow(double a, double b)
+{
+	double	i;
+	double	nb;
+
+	i = 0;
+	nb = a;
+	if (b == 0)
+		return(1);
+	while (i < b)
+	{
+		nb *= a;
+		i += 1;
+	}
+	return (nb);
 }
 
 int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
@@ -70,7 +87,17 @@ int		ft_recurence2(t_coor z, t_coor c, int *color, t_env *data)
 
 	i = 0;
 	*color = g_pal[data->col][0];
-	while (i < data->iter)
+	while (i < data->iter && data->flag3)
+	{
+		xt = pow(z.x * z.x - z.y * z.y + (c.x - 1) / 2 * (z.x - z.y) + (c.x -2), 2);
+		z.y = pow(z.x + z.y + (c.y - 1) / z.x - z.y + (c.y - 2), 2);
+		z.x = (xt);
+		if ((z.x * z.x) + (z.y * z.y) > 4)
+			return (0);
+		i++;
+		*color = g_pal[data->col][i % 50];
+	}
+	while (i < data->iter && !data->flag3)
 	{
 		xt = z.x * z.x - z.y * z.y + c.x;
 		z.y = fabs(2 * (z.x * z.y) + c.y);

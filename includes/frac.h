@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 09:56:05 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 15:08:36 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
 # define RED 0x00ff0000
-# define THREADS 4
+# define THREADS 32
 
 typedef struct	s_coor
 {
@@ -111,6 +111,7 @@ int				julia();
 int				mandel();
 int				burn();
 int				celt();
+int				stati();
 int				advanced();
 int				list();
 int				help();

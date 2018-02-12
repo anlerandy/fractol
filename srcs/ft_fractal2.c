@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 10:44:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:55:45 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 14:55:42 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int		advanced(t_data *data)
 {
 	data->flag3 = 1;
 	julia(data);
+	return (0);
+}
+
+int		stati(t_data *data)
+{
+	data->flag3 = 1;
+	burn(data);
 	return (0);
 }
 

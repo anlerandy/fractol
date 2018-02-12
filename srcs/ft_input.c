@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:53:12 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 09:49:43 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 13:43:51 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int				ft_exit(int key, void *param)
 		data->center.y = -.0376;
 	}
 	ft_transl(key, data);
-	key == 82 ? (data->iter = 25) : key;
+	key == 82 || key == 29 ? (data->iter = 25) : key;
 	data->frame.img = ft_intset(data->frame.img, data->back, data->win_w *
 			data->win_h);
 	data->func(data);

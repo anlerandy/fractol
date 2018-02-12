@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 13:30:33 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 12:46:44 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 19:32:24 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_frac	g_frac[] =
 {
 	{&list, "", NULL},
 	{&julia, "julia", "Ensemble de Julia"},
+	{&stati, "static", "The Magnetic Mandelbrot"},
+	{&stati, "static mandelbrot", "The Magnetic Mandelbrot"},
 	{&advanced, "advanced", "The Advanced Julia"},
 	{&advanced, "advanced julia", "The Advanced Julia"},
 	{&mandel, "mandelbrot", "Ensemble de Mandelbrot"},
