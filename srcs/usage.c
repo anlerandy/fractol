@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 14:39:48 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:56:55 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 09:49:07 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		help2(void)
 	ft_putendl("\t\t\t - '0' Remettre les itérations par défauts (25).");
 	ft_putendl("\t\t\t - 'r' Revenir aux paramètres par défauts.");
 	ft_putendl("\t\t\t - 'c' Changer de palette de couleur.");
+	ft_putendl("\t\t\t - 'b' Changer de type de fond (Transparent ou Opaque).");
 	ft_putendl("\t\t\t - 'Roulette souris' Contrôler le zoom de la fractale.");
 	ft_putendl("\t\t\t - 'Flèches clavier' Contrôler la caméra.");
 	ft_putstr("\t\t\t - 'Mouvement de souris' Varier le dessin de la fratale ");
@@ -61,8 +62,8 @@ int		help2(void)
 	ft_putstr("\t\t\t - '2' Centrer sur le deuxième bâteau (Burning ship uniq");
 	ft_putendl("uement).");
 	ft_putstr("\t\t\t - 'z' & 'x' Diminuer ou augmenter la puissance du Mande");
-	ft_putendl("lbrot (ou Multibrot).");
-	ft_putendl("\t\t\t - '>' Retour au Mandelbrot (Multibrot uniquement).");
+	ft_putstr("lbrot & de Julia (Multibrot & Juliasse).\n\t\t\t - 's");
+	ft_putendl("hift' Retour au Mandelbrot (Multibrot & Juliasse uniquement).");
 	return (0);
 }
 

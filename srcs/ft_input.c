@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:53:12 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 11:55:47 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 09:49:43 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ char			*ft_intset(char *tab, int i, int size)
 static int		ft_transl(int key, t_data *data)
 {
 	key == 6 && data->pow > 2 ? (data->pow -= 1) : key;
-	key == 7 && data->pow < 51 ? (data->pow += 1) : key;
-	key == 50 ? (data->pow = 2) : key;
+	key == 7 && data->pow < 5 ? (data->pow += 1) : key;
+	key == 257 || key == 258 ? (data->pow = 2) : key;
+	if (key == 11)
+		data->back = (data->back == (int)BLUR ? BG : BLUR);
 	if (key == 8)
-		data->col == 0 ? data->col++ : data->col--;
-	if (key == 4)
-		help2();
+		data->col < 4 ? data->col++ : (data->col = 0);
+	key == 4 ? help2() : key;
 	if (key == 69 || key == 24)
 		data->iter += 1;
 	if ((key == 78 || key == 27) && data->iter > 0)
@@ -68,7 +69,8 @@ int				ft_zoom(int key, int x, int y, void *param)
 	data->min_y = -2 + data->center.y / data->zoom;
 	data->max_x = 2 + data->center.x / data->zoom;
 	data->max_y = 2 + data->center.y / data->zoom;
-	data->frame.img = ft_intset(data->frame.img, BG, data->win_w * data->win_h);
+	data->frame.img = ft_intset(data->frame.img, data->back, data->win_w *
+			data->win_h);
 	data->func(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->frame.pimg, 0, 0);
 	return (0);
@@ -103,7 +105,8 @@ int				ft_exit(int key, void *param)
 	}
 	ft_transl(key, data);
 	key == 82 ? (data->iter = 25) : key;
-	data->frame.img = ft_intset(data->frame.img, BG, data->win_w * data->win_h);
+	data->frame.img = ft_intset(data->frame.img, data->back, data->win_w *
+			data->win_h);
 	data->func(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->frame.pimg, 0, 0);
 	return (0);

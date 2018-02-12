@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 12:07:38 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:43:50 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 09:42:07 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	set_data(t_data *data, int i)
 	data->pow = 2;
 	data->center.x = 0;
 	data->center.y = 0;
+	data->back = BG;
 }
 
 static int	set_image(t_data *data)

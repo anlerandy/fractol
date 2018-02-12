@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:56:35 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 09:56:05 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "get_next_line.h"
 
-# define WIN "FractaCraft 0.04.4  /  "
-# define BLUR 0x99000000
-# define BG 0x000000
+# define WIN "FractaCraft 0.05  /  "
+# define BLUR 0xF0000000
+# define BG 0x00000000
 # define BLUE 0x000000ff
 # define WHITE 0x00ffffff
 # define YELLOW 0x00ffff00
@@ -63,6 +63,7 @@ typedef struct	s_data
 	int			part;
 	int			col;
 	double		pow;
+	int			back;
 	int			(*func)();
 }				t_data;
 
