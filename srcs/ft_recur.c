@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 10:45:07 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/09 12:54:11 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 10:02:23 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ int		ft_recurence3(t_coor z, t_coor c, int *color, t_env *data)
 	while (i < data->iter)
 	{
 		!data->flag3 && data->pow > 2 ? (xt = pow(z.x * z.x + z.y * z.y,
-		data->pow / 2) * cos(data->pow * atan2(z.y, z.x)) + c.x) : data->flag3;
+					data->pow / 2) * cos(data->pow * atan2(z.y, z.x)) + c.x) :
+								data->flag3;
 		!data->flag3 && data->pow > 2 ? (z.y = pow(z.x * z.x + z.y * z.y,
-		data->pow / 2) * sin(data->pow * atan2(z.y, z.x)) + c.y) : data->flag3;
+					data->pow / 2) * sin(data->pow * atan2(z.y, z.x)) + c.y) :
+								data->flag3;
 		data->flag3 ? (xt = fabs(z.x * z.x - z.y * z.y) + c.x) : data->flag3;
 		data->flag3 ? (z.y = 2 * (z.x * z.y) + c.y) : data->flag3;
 		!data->flag3 && data->pow < 3 ? xt = (z.x * z.x - z.y * z.y) + c.x : i;
