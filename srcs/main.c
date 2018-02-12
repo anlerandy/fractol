@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 12:07:38 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 09:42:07 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/12 11:13:42 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static void	set_data(t_data *data, int i)
 {
 	data->win_w = 1100;
 	data->win_h = 1100;
-	data->name = ft_strjoin(WIN, g_frac[i].name);
+	if (!(data->name = ft_strjoin(WIN, g_frac[i].name)))
+		data->name = "Untitled - Unexpected Error";
 	data->zoom = 1;
 	data->min_x = -2;
 	data->min_y = -2;
