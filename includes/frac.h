@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 15:08:36 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/13 12:58:14 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,12 @@ void			usage(int err);
 int				ft_close(void);
 int				ft_strint(const char *haystack, const char *needle);
 int				ft_controler(int x, int y, void *param);
+
+t_coor			ft_pow_cmp(t_coor a, int pow);
+t_coor		ft_addsub_cmpl(t_coor a, t_coor b, char c);
+t_coor			ft_cmpl_mult(t_coor a, t_coor b);
+double			ft_dev_cmpl(t_coor z);
+t_coor			ft_divi_cmpl(t_coor a, t_coor b);
 
 int				second(char *av);
 t_env			set_env(t_data *data);

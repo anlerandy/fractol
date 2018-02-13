@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 10:45:07 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/12 22:09:54 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/13 13:23:23 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,23 @@ int		ft_recurence2(t_coor z, t_coor c, int *color, t_env *data)
 {
 	int			i;
 	double		xt;
+	t_coor		tmp1;
+	t_coor		tmp2;
 
 	i = 0;
 	*color = g_pal[data->col][0];
 	while (i < data->iter && data->flag3)
 	{
-		xt = pow(z.x * z.x - z.y * z.y + (c.x - 1) / 2 * (z.x - z.y) + (c.x -2), 2);
-		z.y = pow(z.x + z.y + (c.y - 1) / z.x - z.y + (c.y - 2), 2);
-		z.x = (xt);
+		tmp1 = ft_pow_cmp(z, 2);
+		c.x -= 1.;
+		tmp1 = ft_addsub_cmpl(tmp1, c, '+');
+		tmp2 = ft_addsub_cmpl(z, z, '+');
+		c.x -= 1.;
+		tmp2 = ft_addsub_cmpl(tmp2, c, '+');
+		tmp1 = ft_pow_cmp(tmp1, 2);
+		tmp2 = ft_pow_cmp(tmp2, 2);
+		z = ft_divi_cmpl(tmp1, tmp2);
+		c.x += 2;
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 			return (0);
 		i++;
