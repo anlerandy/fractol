@@ -6,7 +6,7 @@
 /*   By: alerandy <alerandy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 12:00:32 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/13 13:18:00 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/14 22:22:59 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_coor		ft_cmpl_mult(t_coor a, t_coor b)
 {
 	t_coor	tmp;
 
-	tmp.x = a.x + b.x - a.y * b.y;
-	tmp.y = 2 * (a.y + b.y);
+	tmp.x = a.x * b.x - a.y * b.y;
+	tmp.y = (a.x * b.y) + (a.y * b.x);
 	return (tmp);
 }
 
@@ -64,9 +64,11 @@ t_coor		ft_pow_cmp(t_coor a, int pow)
 
 t_coor		ft_divi_cmpl(t_coor a, t_coor b)
 {
-	t_coor tmp;
+	t_coor	tmp;
+	double	tmp01;
 
-	tmp.x = a.x / b.x;
-	tmp.y = a.x / b.y + a.y / b.x + a.y / b.y;
+	tmp01 = b.x * b.x + b.y * b.y;
+	tmp.x = (a.x * b.x + b.y * a.y) / tmp01;
+	tmp.y = (b.x * a.y - b.y * a.x) / tmp01;
 	return (tmp);
 }

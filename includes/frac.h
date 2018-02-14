@@ -6,7 +6,7 @@
 /*   By: alerandy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 11:49:31 by alerandy          #+#    #+#             */
-/*   Updated: 2018/02/13 12:58:14 by alerandy         ###   ########.fr       */
+/*   Updated: 2018/02/14 22:59:52 by alerandy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "get_next_line.h"
 
 # define WIN "FractaCraft 0.05  /  "
-# define BLUR 0xF0000000
+# define BLUR 0xFF000000
 # define BG 0x00000000
 # define BLUE 0x000000ff
 # define WHITE 0x00ffffff
@@ -26,9 +26,9 @@
 
 typedef struct	s_coor
 {
-	double		x;
-	double		y;
-	double		z;
+	long double	x;
+	long double	y;
+	long double	z;
 }				t_coor;
 
 typedef struct	s_frame
@@ -103,7 +103,7 @@ int				ft_strint(const char *haystack, const char *needle);
 int				ft_controler(int x, int y, void *param);
 
 t_coor			ft_pow_cmp(t_coor a, int pow);
-t_coor		ft_addsub_cmpl(t_coor a, t_coor b, char c);
+t_coor			ft_addsub_cmpl(t_coor a, t_coor b, char c);
 t_coor			ft_cmpl_mult(t_coor a, t_coor b);
 double			ft_dev_cmpl(t_coor z);
 t_coor			ft_divi_cmpl(t_coor a, t_coor b);
